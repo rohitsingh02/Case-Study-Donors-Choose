@@ -81,3 +81,11 @@ Label | Description
 ----------|---------------
 `project_is_approved` | A binary flag indicating whether DonorsChoose approved the project. A value of `0` indicates the project was not approved, and a value of `1` indicates the project was approved.
 
+
+
+**The Case Study is divided into following parts**
+
+* EDA and TSNE 
+* Applying K-Nearest Neighbour on DonorsChoose
+*  
+
