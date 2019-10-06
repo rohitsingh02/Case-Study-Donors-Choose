@@ -18,7 +18,7 @@ Code is in the [DonorsChoose_EDA_TSNE.ipynb](EDA.ipynb) notebook file. Also requ
 
 ### Run
 
-In a terminal or command window, navigate to the top-level project directory `boston_housing/` (that contains this README) and run one of the following commands:
+In a terminal or command window, navigate to the top-level project directory `Case-Study-Donors-Choose/` (that contains this README) and run one of the following commands:
 
 ```bash
 jupyter notebook DonorsChoose_EDA_TSNE.ipynb
