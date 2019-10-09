@@ -78,7 +78,64 @@ Label | Description
 `project_is_approved` | A binary flag indicating whether DonorsChoose approved the project. A value of `0` indicates the project was not approved, and a value of `1` indicates the project was approved.
 
 
-### Univariate analysis on all features
+# Tasks:
 
-### USed TSNE to visualize high dimensional feature space into 2D feature space.
+<ol>
+    <li><strong>[Task-1] Apply KNN(brute force version) on these feature sets</strong>
+        <ul>
+            <li><font color='red'>Set 1</font>: categorical, numerical features + project_title(BOW) + preprocessed_essay (BOW)</li>
+            <li><font color='red'>Set 2</font>: categorical, numerical features + project_title(TFIDF)+  preprocessed_essay (TFIDF)</li>
+            <li><font color='red'>Set 3</font>: categorical, numerical features + project_title(AVG W2V)+  preprocessed_essay (AVG W2V)</li>
+            <li><font color='red'>Set 4</font>: categorical, numerical features + project_title(TFIDF W2V)+  preprocessed_essay (TFIDF W2V)</li>
+        </ul>
+    </li>
+    <br>
+    <li><strong>Hyper paramter tuning to find best K</strong>
+        <ul>
+    <li>Find the best hyper parameter which results in the maximum <a href='https://www.appliedaicourse.com/course/applied-ai-course-online/lessons/receiver-operating-characteristic-curve-roc-curve-and-auc-1/'>AUC</a> value</li>
+    <li>Find the best hyper paramter using k-fold cross validation (or) simple cross validation data</li>
+    <li>Use gridsearch-cv or randomsearch-cv or  write your own for loops to do this task</li>
+        </ul>
+    </li>
+    <br>
+    <li>
+    <strong>Representation of results</strong>
+        <ul>
+    <li>You need to plot the performance of model both on train data and cross validation data for each hyper parameter, as shown in the figure
+    <img src='../resources/train_cv_auc.JPG' width=300px></li>
+    <li>Once you find the best hyper parameter, you need to train your model-M using the best hyper-param. Now, find the AUC on test data and plot the ROC curve on both train and test using model-M.
+    <img src='../resources/train_test_auc.JPG' width=300px></li>
+    <li>Along with plotting ROC curve, you need to print the <a href='https://www.appliedaicourse.com/course/applied-ai-course-online/lessons/confusion-matrix-tpr-fpr-fnr-tnr-1/'>confusion matrix</a> with predicted and original labels of test data points
+    <img src='../resources/confusion_matrix.png' width=300px></li>
+        </ul>
+    </li>
+    <li><strong> [Task-2] </strong>
+        <ul>
+            <li>Select top 2000 features from feature <font color='red'>Set 2</font> using <a href='https://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.SelectKBest.html'>`SelectKBest`</a>
+and then apply KNN on top of these features</li>
+            <li>
+                <pre>
+                from sklearn.datasets import load_digits
+                from sklearn.feature_selection import SelectKBest, chi2
+                X, y = load_digits(return_X_y=True)
+                X.shape
+                X_new = SelectKBest(chi2, k=20).fit_transform(X, y)
+                X_new.shape
+                ========
+                output:
+                (1797, 64)
+                (1797, 20)
+                </pre>
+            </li>
+            <li>Repeat the steps 2 and 3 on the data matrix after feature selection</li>
+        </ul>
+    </li>
+    <br>
+    <li><strong>Conclusion</strong>
+        <ul>
+    <li>You need to summarize the results at the end of the notebook, summarize it in the table format. To print out a table please refer to this prettytable library<a href='http://zetcode.com/python/prettytable/'> link</a> 
+        <img src='../resources/summary.JPG' width=400px>
+    </li>
+        </ul>
+</ol>
 
